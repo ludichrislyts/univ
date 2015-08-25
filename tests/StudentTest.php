@@ -239,7 +239,7 @@
             $this->assertEquals($test_student->getCourses(), [$test_course]);
         }
 
-        function testGetCourse()
+        function testGetCourses()
         {
             //Arrange
             $course_name = "Intro to Art";
