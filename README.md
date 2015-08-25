@@ -1,6 +1,6 @@
 # University Registrar with MySQL
 
-##### App for a University registrar to keep track of students and courses. (8/25/15)
+##### App for a university registrar to keep track of students and courses. (8/25/15)
 
 #### Logan Wu & Jose Torres
 

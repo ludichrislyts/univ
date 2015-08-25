@@ -4,6 +4,8 @@
     * @backupStaticAttributes disabled
     */
 
+    //All tests passed
+
     require_once 'src/Student.php';
     require_once 'src/Course.php';
 
