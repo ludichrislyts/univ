@@ -13,8 +13,9 @@
 
             <div class="col-xs-8">
                 <h2>{{ student.getName }}'s Info</h2>
+                <h4>Enrolled since {{ student.getEnrollDate }}</h4>
                 {% if courses is not empty %}
-                    <h4>Courses Enrolled</h4>
+                    <h4>Courses Enrolled:</h4>
                     <ul>
                     {% for course in courses %}
                         <li><a href="/course/{{ course.getId() }}">{{ course.getCourseNumber}}: {{ course.getCourseName }}</a></li>
@@ -39,6 +40,14 @@
                     </select>
                     <button type="submit" class="btn-md">Add course</button>
                 </form>
+                <br>
+
+                <h4>Delete this student?</h4>
+                <form action="/delete_student" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn-xs btn-danger">DELETE</button>
+                </form>
+
 
             </div>
 

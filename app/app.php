@@ -86,6 +86,13 @@
         return $app['twig']->render("course_info.html.twig", array('students' => $students, 'course' => $course, "all_students" => $all_students));
     });
 
+    //CONTENT DELETED PAGE
+    $app->delete("/delete_student/{id}", function($id) use($app){
+        $student = Student::find($id);
+        $student->delete();
+        return $app['twig']->render('deletion.html.twig');
+    });
+
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
