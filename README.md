@@ -7,12 +7,12 @@
 ## Description
 
 This application allows a university registrar to keep track of students by enrollment dates and courses taken.
+
 ## Setup
 * Clone the project using the link provided on Github.
 * Run composer install in Terminal from the project root folder.
 * Start the PHP server from Terminal in the /web folder.
 * Open a web browser and navigate to ```localhost:8000```.
-
 
 ## Technologies Used
 
