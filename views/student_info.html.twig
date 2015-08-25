@@ -43,7 +43,7 @@
                 <br>
 
                 <h4>Delete this student?</h4>
-                <form action="/delete_student" method="post">
+                <form action="/delete_student/{{ student.getId }}" method="post">
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn-xs btn-danger">DELETE</button>
                 </form>
