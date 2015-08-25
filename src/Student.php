@@ -7,7 +7,7 @@ class Student
 
     function __construct($name, $enroll_date, $id = null)
     {
-        $this->name = $name,
+        $this->name = $name;
         $this->enroll_date = $enroll_date;
         $this->id = $id;
     }

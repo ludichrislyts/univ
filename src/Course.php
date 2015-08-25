@@ -9,7 +9,7 @@
         {
             $this->course_name = $course_name;
             $this->course_number = $course_number;
-            $this->id - $id;
+            $this->id = $id;
         }
 
         function setCourseName($new_course_name)
@@ -22,7 +22,7 @@
             return $this->course_name;
         }
 
-        function setCourseNumber()($new_course_number)
+        function setCourseNumber($new_course_number)
         {
             $this->course_number = (string) $new_course_number;
         }
@@ -60,7 +60,7 @@
         static function find($search_id)
         {
             $found_course = null;
-            $courses = Course::getAll()
+            $courses = Course::getAll();
             foreach($courses as $course) {
                 $course_id = $course->getId();
                 if ($course_id == $search_id) {
@@ -100,7 +100,6 @@
             }
             return $students;
         }
-
 
         function delete()
         {
