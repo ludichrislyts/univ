@@ -22,9 +22,9 @@ class Student
         return $this->name;
     }
 
-    function setEnrollDate($new_enroll_date)
+    function setEnrollDate($date)
     {
-        $this->enroll_date = (string) $new_enroll_date;
+        $this->enroll_date = (string) $date;
     }
 
     function getEnrollDate()

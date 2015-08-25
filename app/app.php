@@ -34,6 +34,14 @@
         return $app["twig"]->render("courses.html.twig", array('courses' => $courses));
     });
 
+    //STUDENT VIEW PAGE: STUDENT ADDED
+    $app->post("/student_added", function() use ($app) {
+        $newbie = new Student($_POST["name"], $_POST["date"]);
+        $newbie->save();
+        $students = Student::getAll();
+        return $app["twig"]->render("students.html.twig", array('students' => $students));
+    });
+
 
 
 
