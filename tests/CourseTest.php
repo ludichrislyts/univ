@@ -123,7 +123,7 @@
             $test_course->delete();
 
             //Assert
-            $this->assertEquals([$test_course2], Category::getAll());
+            $this->assertEquals([$test_course2], Course::getAll());
         }
 
         function testGetAll()
