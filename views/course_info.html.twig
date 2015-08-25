@@ -12,32 +12,34 @@
             <h1><center>UNIVERSITY REGISTRAR</center></h1>
 
             <div class="col-xs-8">
-                <h2>{{ student.getName }}'s Info</h2>
-                {% if courses is not empty %}
-                    <h4>Courses Enrolled</h4>
+                <h2>{{ course.getCourseNumber }} - Main Page</h2>
+                <h3>{{ course.getCourseName }}</h3>
+
+                {% if students is not empty %}
+                    <h4>Students Enrolled</h4>
                     <ul>
-                    {% for course in courses %}
-                        <li><a href="/course/{{ course.getId() }}">{{ course.getCourseNumber}}: {{ course.getCourseName }}</a></li>
+                    {% for student in students %}
+                        <li><a href="/student/{{ student.getId }}">{{ student.getName }}</a></li>
                     {% endfor %}
                     </ul>
 
                 {% else %}
-                    <p>The student's class schedule is empty.</p>
-                    <p>This student is lazy.</p>
+                    <p>Zero students are enrolled in this class.</p>
+                    <p>Consider updating your curriculum.</p>
                 {% endif %}
 
                 <br>
-                <h4>Choose Classes to Add:</h4>
-                <form action="/student/{{ student.getId }}/add_course" method="post">
-                    <input id="id" name="id" type="hidden" value="{{ student.getId() }}">
+                <h4>Choose Students to Enroll:</h4>
+                <form action="/course/{{ course.getId }}/add_student" method="post">
+                    <input id="id" name="id" type="hidden" value="{{ course.getId() }}">
 
-                    <label for="course_id">Select a new course:</label>
-                    <select id='course_id' name='course_id' type='text'>
-                        {% for course in all_courses %}
-                            <option value="{{ course.getId }}"> {{ course.getCourseName }} </option>
+                    <label for="student_id">Select a new student:</label>
+                    <select id='student_id' name='student_id' type='text'>
+                        {% for student in all_students %}
+                            <option value="{{ student.getId }}"> {{ student.getName }} </option>
                         {% endfor %}
                     </select>
-                    <button type="submit" class="btn-md">Add course</button>
+                    <button type="submit" class="btn-md">Add student</button>
                 </form>
 
             </div>

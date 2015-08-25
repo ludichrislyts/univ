@@ -68,9 +68,27 @@
         return $app['twig']->render("student_info.html.twig", array('student' => $student, 'courses' => $courses, "all_courses" => $all_courses));
     });
 
+    //INDIVIDUAL COURSE PAGE - DISPLAY COURSE INFO, STUDENT TO ADD LIST, DELETE, UPDATE
+    $app->get("/course/{id}", function($id) use ($app){
+        $course = Course::find($id);
+        $students = $course->getStudents();
+        $all_students = Student::getAll();
+        return $app['twig']->render("course_info.html.twig", array('students' => $students, 'course' => $course, "all_students" => $all_students));
+    });
 
+    //INDIVIDUAL COURSE PAGE - NEW STUDENT ADDED
+    $app->post("/course/{id}/add_student", function($id) use ($app){
+        $course = Course::find($id);
+        $added_student = Student::find($_POST['student_id']);
+        $course->addStudent($added_student);
+        $students = $course->getStudents();
+        $all_students = Student::getAll();
+        return $app['twig']->render("course_info.html.twig", array('students' => $students, 'course' => $course, "all_students" => $all_students));
+    });
 
-
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 
 
     return $app;
