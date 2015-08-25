@@ -10,6 +10,27 @@
         <div class="container">
 
             <h1>UNIVERSITY REGISTRAR</h1>
+            <h2>Student Registry</h2>
+                {% if students is not empty %}
+                    <ul>
+                    {% for student in students %}
+                        <li><a href="/student/{{ student.getId }}">{{ student.getName }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>There are no students enrolled.</p>
+                    <br>
+                {% endif %}
+
+
+
+
+
+
+
+            <form action="/" method="get">
+                <button type="submit" class="btn-lg" style="background-color: white">HOME</button>
+            </form>
             <form action="/students" method="get">
                 <button type="submit" class="btn-lg btn-danger">VIEW ALL STUDENTS</button>
             </form>

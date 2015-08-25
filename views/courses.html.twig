@@ -10,13 +10,36 @@
         <div class="container">
 
             <h1>UNIVERSITY REGISTRAR</h1>
+            <h2>Course Catalogue</h2>
+                {% if courses is not empty %}
+                    <ul>
+                    {% for course in courses %}
+                        <li><a href="/course/{{ course.getId }}">{{ course.getCourseNumber}}: {{ course.getCourseName }}</a></li>
+                    {% endfor %}
+                    </ul>
+
+                {% else %}
+                    <p>The class catalogue is empty.</p>
+                    <p>This school sucks.</p>
+                {% endif %}
+                <br>
+
+
+
+
+
+
+
+            <form action="/" method="get">
+                <button type="submit" class="btn-lg" style="background-color: white">HOME</button>
+            </form>
             <form action="/students" method="get">
                 <button type="submit" class="btn-lg btn-danger">VIEW ALL STUDENTS</button>
             </form>
             <form action="/courses" method="get">
                 <button type="submit" class="btn-lg btn-primary">VIEW ALL COURSES</button>
             </form>
-            
+
         </div>
     </body>
 </html>
