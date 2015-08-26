@@ -8,7 +8,7 @@
 
     $server = 'mysql:host=localhost;dbname=univ_registrar';
     $username = 'root';
-    $password = 'root';
+    $password = '';
     $DB = new PDO($server, $username, $password);
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -86,11 +86,18 @@
         return $app['twig']->render("course_info.html.twig", array('students' => $students, 'course' => $course, "all_students" => $all_students));
     });
 
-    //CONTENT DELETED PAGE
+    //STUDENT CONTENT DELETED PAGE
     $app->delete("/delete_student/{id}", function($id) use($app){
         $student = Student::find($id);
         $student->delete();
         return $app['twig']->render('deletion.html.twig');
+    });
+    
+    //COURSE CONTENT DELETED PAGE
+    $app->delete("/delete_course/{id}", function($id) use($app){
+    $course =Course::find($id);
+    $course->delete();
+    return $app['twig']->render('deletion.html.twig');
     });
 
 //////////////////////////////////////////////////////////////////////////////////////

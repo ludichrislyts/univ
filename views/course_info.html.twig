@@ -42,7 +42,14 @@
                     <button type="submit" class="btn-md">Add student</button>
                 </form>
 
+            <br>
+            <h4>Delete this course?</h4>
+            <form action="/delete_course/{{ course.getId }}" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn-xs btn-danger">DELETE</button>
+            </form>
             </div>
+
 
             <div class="col-xs-4">
                 <br>
